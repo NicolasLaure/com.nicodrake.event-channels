@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Vec2FloatEvent", menuName = "Events/Vec2Float", order = 0)]
-public class Vec2FloatEvent : VoidEventChannelSO
+namespace Events
 {
-    public event UnityAction<Vector2, float> onVector2FloatEvent;
-
-    public void RaiseEvent(Vector2 position, float time)
+    [CreateAssetMenu(fileName = "Vec2FloatEvent", menuName = "Events/Vec2Float", order = 0)]
+    public class Vec2FloatEvent : VoidEventChannelSO
     {
-        onVector2FloatEvent?.Invoke(position, time);
+        public event UnityAction<Vector2, float> onVector2FloatEvent;
+
+        public void RaiseEvent(Vector2 position, float time)
+        {
+            onVector2FloatEvent?.Invoke(position, time);
+        }
     }
 }

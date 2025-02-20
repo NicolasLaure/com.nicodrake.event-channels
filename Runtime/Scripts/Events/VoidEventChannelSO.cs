@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Events/Void", order = 0)]
-public class VoidEventChannelSO : ScriptableObject
+namespace Events
 {
-    public event UnityAction onVoidEvent;
-
-    public void RaiseEvent()
+    [CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Events/Void", order = 0)]
+    public class VoidEventChannelSO : ScriptableObject
     {
-        onVoidEvent?.Invoke();
+        public event UnityAction onVoidEvent;
+
+        public void RaiseEvent()
+        {
+            onVoidEvent?.Invoke();
+        }
     }
 }

@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Vector3EventChannel", menuName = "Events/Vector3", order = 0)]
-public class Vector3EventChannelSO : ScriptableObject
+namespace Events
 {
-    public event UnityAction<Vector3> onVector3Event;
-
-    public void RaiseEvent(Vector3 point)
+    [CreateAssetMenu(fileName = "Vector3EventChannel", menuName = "Events/Vector3", order = 0)]
+    public class Vector3EventChannelSO : ScriptableObject
     {
-        onVector3Event?.Invoke(point);
+        public event UnityAction<Vector3> onVector3Event;
+
+        public void RaiseEvent(Vector3 point)
+        {
+            onVector3Event?.Invoke(point);
+        }
     }
 }
